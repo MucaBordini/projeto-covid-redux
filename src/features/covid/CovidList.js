@@ -26,8 +26,8 @@ function CovidList() {
   return (
     <div className="covid_list">
 
-      <select value={uf} onChange={(ev) => setUf(ev.target.value)}>
-        <option disabled selected value=''>Selecione um estado</option>
+      <select defaultValue={'DEFAULT'} onChange={(ev) => setUf(ev.target.value)}>
+        <option hidden value='DEFAULT'>Selecione um estado</option>
         <option value='sp'>São Paulo</option>
         <option value='pr'>Paraná</option>
       </select>
@@ -38,7 +38,6 @@ function CovidList() {
           return <li key={index}>Estado: {caso.uf} Casos: {caso.cases}</li>;
         })}
       </ul>
-
     </div>
   );
 }

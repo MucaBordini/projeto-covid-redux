@@ -45,7 +45,7 @@ export const search_casos = (uf) => async (dispatch) => {
     const res = await axios.get(
       'https://covid19-brazil-api.now.sh/api/report/v1'
     );
-    dispatch(covidActions.set_estados(res.data.data));
+    dispatch(covidActions.set_casos(res.data.data));
   }
 }
 export default covidSlice.reducer;

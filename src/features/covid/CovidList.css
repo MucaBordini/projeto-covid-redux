@@ -1,0 +1,88 @@
+.selectstate {
+    font-size: 200%;
+    font-family: Arial;
+    color: rgb(17, 32, 59);
+    border-radius: 15px;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.pesquisa {
+    margin-left: 5%;
+    background-color: rgb(50, 50, 175);
+    color: cornsilk;
+    font-size: 14pt;
+    width: 140pt;
+    height: 35pt;
+    border-radius: 15px;
+}
+
+.pesquisa:hover {
+    background-color: rgb(75, 75, 175);
+    color: cornsilk;
+    cursor: pointer;
+}
+
+.cabecalho {
+    font-weight: bold;
+    font-size: 32pt;
+}
+
+.itens {
+    color: darkslategray;
+    font-size: 150%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.tabela {
+    margin:auto;
+}
+
+.legendatabela {
+    color: rgb(44, 14, 83);
+}
+
+.tabela > caption {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32pt;
+    border-bottom: .1em solid rgb(17, 32, 59);
+    margin-bottom: .5em;
+}
+
+.tabela th,
+.tabela td {
+  text-align: left;
+  padding-right: .5em;
+  border-bottom: 3px solid rgb(17, 32, 59);
+  border-right: 3px solid rgb(17, 32, 59);
+  border-bottom-right-radius: 20px;
+  margin-top: 10%;
+}
+
+.tabela th {
+    font-weight: bold;
+    padding-left: .5em;
+}
+
+.tabela th,
+.tabela caption {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+}
+
+.tabela > thead > tr:first-child > th {
+    text-align: center;
+    color: rgb(21, 0, 116);
+}
+
+.tabela > thead > tr + tr > th {
+    font-style: italic;
+    color: gray;
+}
+
+.tabela td {
+    padding:.5em .5em .5em 3em;
+    color: rgb(97, 97, 97);
+}

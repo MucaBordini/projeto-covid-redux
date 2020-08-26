@@ -1,27 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { casos_map, find_casos, search_casos } from './covidSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 function CovidList() {
-  const [casos, setCasos] = useState([]);
+  const casos = useSelector(casos_map);
   const [uf, setUf] = useState('');
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    (async () => {
-      const res = await axios.get(
-        'https://covid19-brazil-api.now.sh/api/report/v1'
-      );
-
-      setCasos(res.data.data);
-    })();
-  }, []);
-
-  async function search() {
-    const res = await axios.get(
-      `https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/${uf}`
-    );
-
-    setCasos([res.data])
-  }
+    dispatch(find_casos());
+  }, [dispatch]);
 
   return (
     <div className="covid_list">
@@ -31,7 +19,7 @@ function CovidList() {
         <option value='sp'>São Paulo</option>
         <option value='pr'>Paraná</option>
       </select>
-      <button onClick={() => search()}>Search</button>
+      <button onClick={() => dispatch(search_casos(uf))}>Search</button>
 
       <ul>
         {casos.map((caso, index) => {

@@ -1,0 +1,39 @@
+.container {
+    background-color: rgb(223, 115, 88);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-bottom: .1em solid rgb(17, 32, 59);
+}
+
+.image {
+    display: inline-flex;
+}
+
+.container img {
+    max-width:70px;
+    max-height:70px;
+    width: auto;
+    height: auto;
+}
+
+.inputs {
+    display: inline-flex;
+}
+
+.campoEmail {
+    display: inline-block;
+    font-size: 18pt;
+    font-family: Arial;
+    color: rgb(17, 32, 59);
+    border-radius: 15px;
+    margin-bottom: 2%;
+}
+
+.campoSenha {
+    display: inline-block;
+    font-size: 18pt;
+    font-family: Arial;
+    color: rgb(17, 32, 59);
+    border-radius: 15px;
+    margin-bottom: 2%;
+}

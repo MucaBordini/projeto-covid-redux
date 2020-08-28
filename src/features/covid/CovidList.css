@@ -11,16 +11,16 @@
 
 .pesquisa {
     margin-left: 5%;
-    background-color: rgb(50, 50, 175);
+    background-color: rgb(223, 115, 88);
     color: cornsilk;
     font-size: 14pt;
     width: 140pt;
-    height: 35pt;
+    height: 32pt;
     border-radius: 15px;
 }
 
 .pesquisa:hover {
-    background-color: rgb(75, 75, 175);
+    background-color: rgb(216, 156, 141);
     color: cornsilk;
     cursor: pointer;
 }

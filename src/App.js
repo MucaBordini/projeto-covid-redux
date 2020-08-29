@@ -5,9 +5,7 @@ import Header from './features/header/Header'
 function App() {
   return (
     <div className="App">
-      <header>
-        <Header />
-      </header>
+      <Header />
       <CovidList />
     </div>
   );

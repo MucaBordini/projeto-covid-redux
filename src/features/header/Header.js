@@ -1,29 +1,43 @@
 import React from 'react';
-import './Header.css';
+
 import logo from '../../assets/coronavirus.png'
 
-export default class Header extends React.Component {
-    render() {
-        return(
-            <div className='container'>
-                <div className='image'>
-                    <img src={logo}/>
-                </div>
-                <div className='inputs'>
-                    <label>
-                        Email:
-                        <input className='campoEmail' type='email'></input>
-                    </label>
-                    <label>
-                        Senha:
-                        <input className='campoSenha' type='password'></input>
-                    </label>
-                    <div>
-                        <button>LOGIN</button>
-                    </div>
-                </div>
-                
-            </div>
-        )
+import './Header.css';
+import { useState } from 'react';
+import Form from '../formRegister/form';
+
+const Header = () => {
+    const [toggleForm, setToggleForm] = useState(true);
+
+    function handleToggleForm() {
+        toggleForm ? setToggleForm(false) : setToggleForm(true);
     }
+
+    return (
+        <div className='container'>
+            <div className='image'>
+                <img src={logo}/>
+            </div>
+            <div className='inputs'>
+                <label>Email: </label>
+                <input className='campoEmail' type='email'></input>
+                    
+                <label>Senha: </label>
+                <input className='campoSenha' type='password'></input>
+                    
+                <div>
+                    <button>LOGIN</button>
+                </div>
+
+                <div>
+                    <button onClick={() => handleToggleForm()}>REGISTRAR</button>
+                </div>
+            </div>
+            
+            {toggleForm ? <Form /> : null}
+            
+        </div>
+    );
 }
+
+export default Header;

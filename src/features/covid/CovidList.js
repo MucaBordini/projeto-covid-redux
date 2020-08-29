@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { casos_map, find_casos, search_casos, estados_map, find_estados } from './covidSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import { casos_map, find_casos, search_casos, estados_map, find_estados } from './covidSlice';
+
 import './CovidList.css'
 
 function CovidList() {

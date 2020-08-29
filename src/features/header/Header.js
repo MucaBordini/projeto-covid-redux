@@ -30,7 +30,7 @@ const Header = () => {
                 </div>
 
                 <div>
-                    <button onClick={() => handleToggleForm()}>REGISTRAR</button>
+                    <button onClick={() => handleToggleForm()}>REGISTRAR-SE</button>
                 </div>
             </div>
             

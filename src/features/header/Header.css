@@ -20,6 +20,16 @@
     display: inline-flex;
 }
 
+.botao {
+    margin-left: 5%;
+    background-color: rgb(223, 115, 88);
+    color: cornsilk;
+    font-size: 14pt;
+    width: 140pt;
+    height: 32pt;
+    border-radius: 15px;
+}
+
 .campoEmail {
     display: inline-block;
     font-size: 18pt;

@@ -22,7 +22,24 @@ export const covidActions = covidSlice.actions;
 export const find_estados = () => async (dispatch) => {
   const res = await api.get('');
 
-  dispatch(covidActions.set_estados(res.data.data));
+  var estados = res.data.data;
+
+  function compare(a, b) {
+    const estadoA = a.state;
+    const estadoB = b.state;
+  
+    let comparison = 0;
+    if (estadoA > estadoB) {
+      comparison = 1;
+    } else if (estadoA < estadoB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+  
+  estados.sort(compare);
+
+  dispatch(covidActions.set_estados(estados));
 }
 export const find_casos = () => async (dispatch) => {
   const res = await api.get('');

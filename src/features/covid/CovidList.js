@@ -14,18 +14,19 @@ function CovidList() {
     dispatch(find_casos());
     dispatch(find_estados());
   }, [dispatch]);
-
+  
   return (
     <div className='lista'>
 
       <select className="selectstate" defaultValue={'DEFAULT'} onChange={(ev) => setUf(ev.target.value)}>
         <option hidden value='DEFAULT'>Selecione um estado</option>
         <option value='todos'>Todos os estados</option>
-        {estados.map((estado, index) => {
-              return (
-                <option value={estado.uf} key={index}>{estado.state}</option>
-              );
-            })}
+        {
+          estados.map((estado, index) => {
+            return (
+              <option value={estado.uf} key={index}>{estado.state}</option>
+            );
+        })}
       </select>
       <button className='pesquisa' onClick={() => dispatch(search_casos(uf))}>Search</button>
 

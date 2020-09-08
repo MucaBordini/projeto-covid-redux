@@ -35,7 +35,7 @@ function Header() {
             </div>
             {
                 logado ? (
-                    <button onClick={() => {
+                    <button className="botao" onClick={() => {
                         localStorage.clear();
                         window.location.reload(false);
                     }}>Sair</button>
@@ -51,10 +51,6 @@ function Header() {
                     <div>
                         <button className="botao" onClick={() => {
                             dispatch(login(email, password));
-                            localStorage.setItem('logged', true);
-                            setTimeout(function() {
-                                window.location.reload(false);
-                            }, 1000);
                         }}>LOGIN</button>
                         
                     </div>

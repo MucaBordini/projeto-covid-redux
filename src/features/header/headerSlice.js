@@ -24,8 +24,14 @@ export const login = (emailUser, passwordUser) => async (dispatch) => {
       email: emailUser,
       password: passwordUser
     }).then(function (response) {
+      localStorage.setItem('logged', true);
       console.log(response.data);
       dispatch(headerActions.set_login(response.data));
+      setTimeout(function() {
+        window.location.reload(false);
+    }, 400);
+    }).catch( error => {
+      alert('Erro ao efetuar login\n', error);
     });
 }
 

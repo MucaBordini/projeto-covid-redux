@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/projeto-covid-redux/static/css/main.64b78760.chunk.css",
+    "main.js": "/projeto-covid-redux/static/js/main.26bd9d3b.chunk.js",
+    "main.js.map": "/projeto-covid-redux/static/js/main.26bd9d3b.chunk.js.map",
+    "runtime-main.js": "/projeto-covid-redux/static/js/runtime-main.ab82aff3.js",
+    "runtime-main.js.map": "/projeto-covid-redux/static/js/runtime-main.ab82aff3.js.map",
+    "static/js/2.88b7e53e.chunk.js": "/projeto-covid-redux/static/js/2.88b7e53e.chunk.js",
+    "static/js/2.88b7e53e.chunk.js.map": "/projeto-covid-redux/static/js/2.88b7e53e.chunk.js.map",
+    "index.html": "/projeto-covid-redux/index.html",
+    "precache-manifest.56fbf7e92497e16fec9410c8597cfd8f.js": "/projeto-covid-redux/precache-manifest.56fbf7e92497e16fec9410c8597cfd8f.js",
+    "service-worker.js": "/projeto-covid-redux/service-worker.js",
+    "static/css/main.64b78760.chunk.css.map": "/projeto-covid-redux/static/css/main.64b78760.chunk.css.map",
+    "static/js/2.88b7e53e.chunk.js.LICENSE.txt": "/projeto-covid-redux/static/js/2.88b7e53e.chunk.js.LICENSE.txt",
+    "static/media/coronavirus.png": "/projeto-covid-redux/static/media/coronavirus.21fabd9c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ab82aff3.js",
+    "static/js/2.88b7e53e.chunk.js",
+    "static/css/main.64b78760.chunk.css",
+    "static/js/main.26bd9d3b.chunk.js"
+  ]
+}

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { user_map, login, register } from './headerSlice';
+import { error_map, user_map, login, register } from './headerSlice';
 
 import logo from '../../assets/coronavirus.png'
 import './Header.css';
 
 function Header() {
     const user = useSelector(user_map);
+    const error = useSelector(error_map);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [logado] = useState(localStorage.getItem('logged'))
@@ -16,6 +17,8 @@ function Header() {
 
 
     function handleToggleForm() {
+        setEmail('');
+        setPassword('');
         toggleForm ? setToggleForm(false) : setToggleForm(true);
     }
 
@@ -58,6 +61,7 @@ function Header() {
                         <button className="botao" onClick={() => handleToggleForm()}>REGISTRAR-SE</button>
                     </div>
                 </div>)
+                
             }
             
             {toggleForm ? (
@@ -72,6 +76,10 @@ function Header() {
                     <button className="botao" onClick={() => dispatch(register(email, password))}>Cadastrar</button>
                 </div>
             ) : null}
+
+            <div>
+                {error}
+            </div>
         </div>
     );
 }

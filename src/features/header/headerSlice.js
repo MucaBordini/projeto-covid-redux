@@ -26,16 +26,13 @@ export const error_map = (state) => state.user.error;
 export const headerActions = headerSlice.actions;
 
 export const login = (emailUser, passwordUser) => async (dispatch) => {
-  const user = {
-    email: "samuca@email.com",
-    password: "viadinho"
-  }
-
+  
   await db.post('sessions', {
-    email: "samuca@email.com",
-    password: "viadinho"
+    email: emailUser,
+    password: passwordUser
   }).then(response => {
     localStorage.setItem('logged', true);
+    localStorage.setItem('token', 'Bearer '+response.data.token);
       dispatch(headerActions.set_login(response.data));
       setTimeout(function() {
         window.location.reload(false);

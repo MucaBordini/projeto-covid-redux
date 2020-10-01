@@ -8,6 +8,7 @@ import './Header.css';
 function Header() {
     const user = useSelector(user_map);
     const error = useSelector(error_map);
+    const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [logado] = useState(localStorage.getItem('logged'))
@@ -45,6 +46,7 @@ function Header() {
                 )
                 :
                 (<div className='inputs'>
+
                     <label>Email: </label>
                     <input className='campoEmail' type='email' onChange={(ev) => setEmail(ev.target.value)}></input>
                         
@@ -67,13 +69,15 @@ function Header() {
             {toggleForm ? (
                 <div>
                     <h2>Preencha os dados abaixo</h2>
+                    <label>Nome: </label>
+                    <input className='campoNome' type='text' onChange={(ev) => setNome(ev.target.value)}></input>
                     <label>Email: </label>
                     <input className='campoEmail' type='email' onChange={(ev) => setEmail(ev.target.value)}></input>
                             
                     <label>Senha: </label>
                     <input className='campoSenha' type='password' onChange={(ev) => setPassword(ev.target.value)}></input>
 
-                    <button className="botao" onClick={() => dispatch(register(email, password))}>Cadastrar</button>
+                    <button className="botao" onClick={() => dispatch(register(nome, email, password))}>Cadastrar</button>
                 </div>
             ) : null}
 

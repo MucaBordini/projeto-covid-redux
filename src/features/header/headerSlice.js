@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import apiLogin from '../../services/apiLogin';
+//import apiLogin from '../../services/apiLogin';
 import db from '../../services/db';
 
 export const headerSlice = createSlice({
@@ -55,14 +55,15 @@ export const login = (emailUser, passwordUser) => async (dispatch) => {
     // });
 }
 
-export const register = (emailUser, passwordUser) => async (dispatch) => {
+export const register = (nomeUser, emailUser, passwordUser) => async (dispatch) => {
   const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   
   if (emailUser && passwordUser) {
     if(!mailFormat.test(emailUser)){
       dispatch(headerActions.set_error('Email inválido'));
     } else {
-      await apiLogin.post('users', {
+      await db.post('users', {
+        nome: nomeUser,
         email: emailUser,
         password: passwordUser
       }).then((response) => {

@@ -51,7 +51,7 @@ export const login = (emailUser, passwordUser) => async (dispatch) => {
 export const register = (nomeUser, emailUser, passwordUser) => async (dispatch) => {
   const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   
-  if (nomeUser && emailUser && passwordUser) {
+  if (emailUser && passwordUser) {
     if(!mailFormat.test(emailUser)){
       dispatch(headerActions.set_error('Email inválido'));
     } else {

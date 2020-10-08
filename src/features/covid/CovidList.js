@@ -43,13 +43,14 @@ function CovidList() {
             </thead>
             <tbody>
             {casos.map((caso, index) => {
+              console.log(caso, index)
               return (
                 <tr key={index}>
-                <td className='itens'>{caso.uf}</td>
-                <td className='itens'>{caso.cases}</td>
-                <td className='itens'>{caso.deaths}</td>
-                <td className='itens'>{caso.suspects}</td>
-                <td className='itens'>{caso.datetime}</td>
+                <td className='itens'>{caso.estado}</td>
+                <td className='itens'>{caso.casos}</td>
+                <td className='itens'>{caso.mortes}</td>
+                <td className='itens'>{caso.suspeitos}</td>
+                <td className='itens'>{caso.ultimaAtualizacao}</td>
                 </tr>            
               );
             })}

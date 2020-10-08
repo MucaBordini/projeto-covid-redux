@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import api from '../../services/api';
+import db from '../../services/db';
 
 export const covidSlice = createSlice({
   name: 'covid',
@@ -42,9 +43,9 @@ export const find_estados = () => async (dispatch) => {
   dispatch(covidActions.set_estados(estados));
 }
 export const find_casos = () => async (dispatch) => {
-  const res = await api.get('');
+  const res = await db.get('cases');
 
-  dispatch(covidActions.set_casos(res.data.data));
+  dispatch(covidActions.set_casos(res.data));
 }
 export const search_casos = (uf) => async (dispatch) => {
   if (uf !== "todos"){

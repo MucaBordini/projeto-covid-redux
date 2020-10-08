@@ -24,7 +24,7 @@ function CovidList() {
         {
           estados.map((estado, index) => {
             return (
-              <option value={estado.uf} key={index}>{estado.state}</option>
+              <option value={estado.estado} key={index}>{estado.estado}</option>
             );
         })}
       </select>
@@ -55,11 +55,6 @@ function CovidList() {
             })}
             </tbody>
         </table>
-
-      {/* <ul>
-        <li className='cabecalho'>Estado - Casos</li>
-        
-      </ul> */}
     </div>
   );
 }

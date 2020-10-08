@@ -49,9 +49,9 @@ export const find_casos = () => async (dispatch) => {
 }
 export const search_casos = (uf) => async (dispatch) => {
   if (uf !== "todos"){
-    const res = await api.get(`/brazil/uf/${uf}`);
-    
-    dispatch(covidActions.set_casos([res.data]));
+    const res = await db.get(`cases?estado=${uf}`);
+
+    dispatch(covidActions.set_casos(res.data));
   } else {
     dispatch(find_casos());
   }

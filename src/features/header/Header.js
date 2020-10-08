@@ -48,10 +48,10 @@ function Header() {
                 (<div className='inputs'>
 
                     <label>Email: </label>
-                    <input className='campoEmail' type='email' onChange={(ev) => setEmail(ev.target.value)}></input>
+                    <input className='campo' type='email' onChange={(ev) => setEmail(ev.target.value)}></input>
                         
                     <label>Senha: </label>
-                    <input className='campoSenha' type='password' onChange={(ev) => setPassword(ev.target.value)}></input>
+                    <input className='campo' type='password' onChange={(ev) => setPassword(ev.target.value)}></input>
                         
                     <div>
                         <button className="botao" onClick={() => {
@@ -70,12 +70,12 @@ function Header() {
                 <div>
                     <h2>Preencha os dados abaixo</h2>
                     <label>Nome: </label>
-                    <input className='campoNome' type='text' onChange={(ev) => setNome(ev.target.value)}></input>
+                    <input className='campo' type='text' onChange={(ev) => setNome(ev.target.value)}></input>
                     <label>Email: </label>
-                    <input className='campoEmail' type='email' onChange={(ev) => setEmail(ev.target.value)}></input>
+                    <input className='campo' type='email' onChange={(ev) => setEmail(ev.target.value)}></input>
                             
                     <label>Senha: </label>
-                    <input className='campoSenha' type='password' onChange={(ev) => setPassword(ev.target.value)}></input>
+                    <input className='campo' type='password' onChange={(ev) => setPassword(ev.target.value)}></input>
 
                     <button className="botao" onClick={() => dispatch(register(nome, email, password))}>Cadastrar</button>
                 </div>

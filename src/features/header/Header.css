@@ -30,16 +30,7 @@
     border-radius: 15px;
 }
 
-.campoEmail {
-    display: inline-block;
-    font-size: 18pt;
-    font-family: Arial;
-    color: rgb(17, 32, 59);
-    border-radius: 15px;
-    margin-bottom: 2%;
-}
-
-.campoSenha {
+.campo {
     display: inline-block;
     font-size: 18pt;
     font-family: Arial;

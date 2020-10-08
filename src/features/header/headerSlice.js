@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-//import apiLogin from '../../services/apiLogin';
 import db from '../../services/db';
 
 export const headerSlice = createSlice({
@@ -31,7 +30,6 @@ export const login = (emailUser, passwordUser) => async (dispatch) => {
     email: emailUser,
     password: passwordUser
   }).then(response => {
-    localStorage.setItem('logged', true);
     localStorage.setItem('token', 'Bearer '+response.data.token);
       dispatch(headerActions.set_login(response.data));
       setTimeout(function() {
@@ -41,24 +39,19 @@ export const login = (emailUser, passwordUser) => async (dispatch) => {
     dispatch(headerActions.set_error(error.response.data.error));
   });
 
-    // await apiLogin.post('login', {
-    //   email: emailUser,
-    //   password: passwordUser
-    // }).then(function (response) {
-    //   localStorage.setItem('logged', true);
-    //   dispatch(headerActions.set_login(response.data));
-    //   setTimeout(function() {
-    //     window.location.reload(false);
-    // }, 400);
-    // }).catch( error => {
-    //   dispatch(headerActions.set_error(error.response.data.error));
-    // });
+  await db.get('authenticated', {
+    headers: {
+      Authorization: localStorage.getItem('token'),
+    }
+  }).then(() => {
+    localStorage.setItem('logged', true);
+  });
 }
 
 export const register = (nomeUser, emailUser, passwordUser) => async (dispatch) => {
   const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   
-  if (emailUser && passwordUser) {
+  if (nomeUser && emailUser && passwordUser) {
     if(!mailFormat.test(emailUser)){
       dispatch(headerActions.set_error('Email inválido'));
     } else {
@@ -70,11 +63,11 @@ export const register = (nomeUser, emailUser, passwordUser) => async (dispatch) 
         dispatch(headerActions.set_error('Usuário criado com sucesso!'));
         dispatch(headerActions.set_register(response.data));
       }).catch( error => {
-        dispatch(headerActions.set_error(error.response.data.error));
+        dispatch(headerActions.set_error(error.response.data));
       });
     }
   } else {
-    dispatch(headerActions.set_error('Email ou usuário não informados'));
+    dispatch(headerActions.set_error('Os campos não foram preenchidos corretamente'));
   }
 }
 

@@ -21,13 +21,13 @@ export const casos_map = (state) => state.covid.casos;
 export const estados_map = (state) => state.covid.estados;
 export const covidActions = covidSlice.actions;
 export const find_estados = () => async (dispatch) => {
-  const res = await api.get('');
+  const res = await db.get('cases');
 
-  var estados = res.data.data;
+  var estados = res.data;
 
   function compare(a, b) {
-    const estadoA = a.state;
-    const estadoB = b.state;
+    const estadoA = a.estado;
+    const estadoB = b.estado;
   
     let comparison = 0;
     if (estadoA > estadoB) {

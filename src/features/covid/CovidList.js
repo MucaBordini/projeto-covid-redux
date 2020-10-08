@@ -43,7 +43,6 @@ function CovidList() {
             </thead>
             <tbody>
             {casos.map((caso, index) => {
-              console.log(caso, index)
               return (
                 <tr key={index}>
                 <td className='itens'>{caso.estado}</td>

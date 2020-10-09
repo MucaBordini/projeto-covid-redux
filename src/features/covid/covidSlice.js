@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import api from '../../services/api';
 import db from '../../services/db';
 
 export const covidSlice = createSlice({
   name: 'covid',
-  initialState: { casos: [], estados: [] },
+  initialState: { 
+    casos: [], 
+    estados: []
+  },
   reducers: {
     set_casos: (state, action) => {
       state.casos = action.payload;
@@ -23,11 +25,20 @@ export const covidActions = covidSlice.actions;
 export const find_estados = () => async (dispatch) => {
   const res = await db.get('cases');
 
-  var estados = res.data;
+  var casos = res.data;
+  var estados = [];
+
+  casos.forEach((caso) => {
+    estados = [...estados, caso.estado]
+  });
+
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
 
   function compare(a, b) {
-    const estadoA = a.estado;
-    const estadoB = b.estado;
+    const estadoA = a;
+    const estadoB = b;
   
     let comparison = 0;
     if (estadoA > estadoB) {
@@ -37,8 +48,8 @@ export const find_estados = () => async (dispatch) => {
     }
     return comparison;
   }
-  
-  estados.sort(compare);
+
+  estados = estados.filter(onlyUnique).sort(compare);
 
   dispatch(covidActions.set_estados(estados));
 }
@@ -55,5 +66,16 @@ export const search_casos = (uf) => async (dispatch) => {
   } else {
     dispatch(find_casos());
   }
+}
+export const register_caso = (estado, confirmados, mortes, suspeitas) => async (dispatch) => {
+  await db.post('cases', {
+    estado: estado,
+    casos: confirmados,
+    mortes: mortes,
+    suspeitos: suspeitas,
+    ultimaAtualizacao: new Date()
+  }).then(() => {
+    dispatch(find_casos());
+  });
 }
 export default covidSlice.reducer;

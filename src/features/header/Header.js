@@ -73,7 +73,6 @@ function Header() {
                     <input className='campo' type='text' onChange={(ev) => setNome(ev.target.value)}></input>
                     <label>Email: </label>
                     <input className='campo' type='email' onChange={(ev) => setEmail(ev.target.value)}></input>
-                            
                     <label>Senha: </label>
                     <input className='campo' type='password' onChange={(ev) => setPassword(ev.target.value)}></input>
 

@@ -56,7 +56,24 @@ export const find_estados = () => async (dispatch) => {
 export const find_casos = () => async (dispatch) => {
   const res = await db.get('cases');
 
-  dispatch(covidActions.set_casos(res.data));
+  var estados = res.data;
+
+  function compare(a, b) {
+    const estadoA = a.estado;
+    const estadoB = b.estado;
+  
+    let comparison = 0;
+    if (estadoA > estadoB) {
+      comparison = 1;
+    } else if (estadoA < estadoB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  estados = estados.sort(compare);
+
+  dispatch(covidActions.set_casos(estados));
 }
 export const search_casos = (uf) => async (dispatch) => {
   if (uf !== "todos"){

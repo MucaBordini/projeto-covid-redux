@@ -30,10 +30,13 @@ export const login = (emailUser, passwordUser) => async (dispatch) => {
     email: emailUser,
     password: passwordUser
   }).then(response => {
+    if (response.data.isAdmin) {
+      localStorage.setItem('admin', response.data.isAdmin);
+    }
     localStorage.setItem('token', 'Bearer '+response.data.token);
-      dispatch(headerActions.set_login(response.data));
-      setTimeout(function() {
-        window.location.reload(false);
+    dispatch(headerActions.set_login(response.data));
+    setTimeout(function() {
+      window.location.reload(false);
     }, 400);
   }).catch( error => {
     dispatch(headerActions.set_error(error.response.data.error));

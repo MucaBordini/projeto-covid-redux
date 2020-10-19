@@ -34,18 +34,20 @@ function CovidList() {
       </select>
       <button className='pesquisa' onClick={() => dispatch(search_casos(uf))}>Search</button>
 
-      <div>
-        <label>Estado: </label>
-        <input className='campo' type='text' value={estado} onChange={(ev) => setEstado(ev.target.value)}></input>
-        <label>Casos: </label>
-        <input className='campo' type='number' value={confirmados} onChange={(ev) => setConfirmados(ev.target.value)}></input>
-        <label>Mortes: </label>
-        <input className='campo' type='number' value={mortes} onChange={(ev) => setMortes(ev.target.value)}></input>
-        <label>Suspeitas: </label>
-        <input className='campo' type='number' value={suspeitas} onChange={(ev) => setSuspeitas(ev.target.value)}></input>
-        
-        <button className="botao" onClick={() => dispatch(register_caso(estado, confirmados, mortes, suspeitas))}>Cadastrar</button>
-      </div>
+      {localStorage.getItem('admin') && (
+        <div>
+          <label>Estado: </label>
+          <input className='campo' type='text' value={estado} onChange={(ev) => setEstado(ev.target.value)}></input>
+          <label>Casos: </label>
+          <input className='campo' type='number' value={confirmados} onChange={(ev) => setConfirmados(ev.target.value)}></input>
+          <label>Mortes: </label>
+          <input className='campo' type='number' value={mortes} onChange={(ev) => setMortes(ev.target.value)}></input>
+          <label>Suspeitas: </label>
+          <input className='campo' type='number' value={suspeitas} onChange={(ev) => setSuspeitas(ev.target.value)}></input>
+          
+          <button className="botao" onClick={() => dispatch(register_caso(estado, confirmados, mortes, suspeitas))}>Cadastrar</button>
+        </div>
+      )}
 
         <table className="tabela">
         <caption className="legendatabela">Covid no Brasil</caption>
